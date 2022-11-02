@@ -3,17 +3,22 @@ package no.hvl.dat100.jplab11.oppgave1;
 import no.hvl.dat100.jplab11.common.TODO;
 
 public abstract class Innlegg {
-	
 	// TODO - deklarering av objektvariable
+
+	private int id;
+	private String bruker;
+	private String dato;
+	private int likes;
 	
 	public Innlegg() {
 		
 	}
 	
 	public Innlegg(int id, String bruker, String dato) {
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.constructor("Innlegg"));
+		this.id = id;
+		this.bruker = bruker;
+		this.dato = dato;
+		this.likes = 0;
 	}
 
 	public Innlegg(int id, String bruker, String dato, int likes) {
@@ -24,9 +29,7 @@ public abstract class Innlegg {
 	}
 	
 	public String getBruker() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-
+		return this.bruker;
 	}
 
 	public void setBruker(String bruker) {
@@ -34,8 +37,7 @@ public abstract class Innlegg {
 	}
 
 	public String getDato() {
-		throw new UnsupportedOperationException(TODO.method());
-		
+		return this.dato;
 	}
 
 	public void setDato(String dato) {
@@ -43,13 +45,11 @@ public abstract class Innlegg {
 	}
 
 	public int getId() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		return this.id;
 	}
 
 	public int getLikes() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		return this.likes;
 	}
 	
 	public void doLike () {
