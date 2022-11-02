@@ -26,13 +26,13 @@ public class Tekst extends Innlegg {
 	}
 
 	public void setTekst(String tekst) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.tekst = tekst;
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		return "TEKST" + "\n" + getId() + "\n" + getBruker() + 
+				"\n" + getDato() + "\n" + getLikes() + "\n" + getTekst() + "\n";
 	}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6
