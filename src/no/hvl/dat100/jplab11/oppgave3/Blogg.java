@@ -6,16 +6,16 @@ import no.hvl.dat100.jplab11.oppgave1.*;
 public class Blogg {
 
 	private Innlegg[] innleggtabell;
-	private int nesteledig;
+	private int       nesteledig;
 
 	public Blogg() {
 		this.innleggtabell = new Innlegg[20];
-		this.nesteledig = 0;
+		this.nesteledig    = 0;
 	}
 
 	public Blogg(int lengde) {
 		this.innleggtabell = new Innlegg[lengde];
-		this.nesteledig = 0;
+		this.nesteledig    = 0;
 	}
 
 	public int getAntall() {
@@ -27,7 +27,7 @@ public class Blogg {
 	}
 
 	public int finnInnlegg(Innlegg innlegg) {
-		for (int i = 0; i <= this.innleggtabell.length; i++) {
+		for (int i = 0; i < this.innleggtabell.length; i++) {
 			if (innleggtabell[i].erLik(innlegg)) {
 				return i;
 			}
@@ -37,7 +37,7 @@ public class Blogg {
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		for (int i = 0; i <= this.innleggtabell.length; i++) {
+		for (int i = 0; i < this.innleggtabell.length; i++) {
 			if (innleggtabell[i].erLik(innlegg)) {
 				return true;
 			}
@@ -49,7 +49,7 @@ public class Blogg {
 		if (nesteledig == innleggtabell.length + 1) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
