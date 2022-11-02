@@ -33,7 +33,7 @@ public abstract class Innlegg {
 	}
 
 	public void setBruker(String bruker) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.bruker = bruker;
 	}
 
 	public String getDato() {
@@ -41,7 +41,7 @@ public abstract class Innlegg {
 	}
 
 	public void setDato(String dato) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.dato = dato;
 	}
 
 	public int getId() {
