@@ -53,7 +53,7 @@ public abstract class Innlegg {
 	}
 	
 	public void doLike () {
-		throw new UnsupportedOperationException(TODO.method());
+		this.likes++;
 	}
 	
 	public boolean erLik(Innlegg innlegg) {
@@ -63,9 +63,7 @@ public abstract class Innlegg {
 	
 	@Override
 	public String toString() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-				
+	return id + "\nOle Olsen\n23-10\n" + likes + "\n";
 	}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6
