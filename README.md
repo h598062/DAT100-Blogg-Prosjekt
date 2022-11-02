@@ -1,1 +1,1 @@
-# dat100-jplab12-startkode
+# DAT100-Blogg-Prosjekt
