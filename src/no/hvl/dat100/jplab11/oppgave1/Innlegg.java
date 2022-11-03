@@ -5,29 +5,29 @@ import no.hvl.dat100.jplab11.common.TODO;
 public abstract class Innlegg {
 	// TODO - deklarering av objektvariable
 
-	private int id;
+	private int    id;
 	private String bruker;
 	private String dato;
-	private int likes;
-	
+	private int    likes;
+
 	public Innlegg() {
-		
+
 	}
-	
+
 	public Innlegg(int id, String bruker, String dato) {
-		this.id = id;
+		this.id     = id;
 		this.bruker = bruker;
-		this.dato = dato;
-		this.likes = 0;
+		this.dato   = dato;
+		this.likes  = 0;
 	}
 
 	public Innlegg(int id, String bruker, String dato, int likes) {
-		this.id = id;
+		this.id     = id;
 		this.bruker = bruker;
-		this.dato = dato;
-		this.likes = likes;
+		this.dato   = dato;
+		this.likes  = likes;
 	}
-	
+
 	public String getBruker() {
 		return this.bruker;
 	}
@@ -51,28 +51,28 @@ public abstract class Innlegg {
 	public int getLikes() {
 		return this.likes;
 	}
-	
-	public void doLike () {
+
+	public void doLike() {
 		this.likes++;
 	}
-	
+
 	public boolean erLik(Innlegg innlegg) {
-		// return id == innlegg.getId();
-		if (id == innlegg.getId()) {
-			return true;
-		}
-		return false;
+		// sjekk om det andre innlegget faktisk eksisterer
+		if (innlegg == null) return false;
+
+		// true hvis de er lik, false hvis ulik
+		return id == innlegg.getId();
 	}
-	
+
 	@Override
 	public String toString() {
-	return id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
+		return id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
 	}
-	
+
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
-		
+
 		throw new UnsupportedOperationException(TODO.method());
-				
+
 	}
 }

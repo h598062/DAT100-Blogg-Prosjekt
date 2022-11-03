@@ -5,8 +5,8 @@ import no.hvl.dat100.jplab11.oppgave1.*;
 
 public class Blogg {
 
-	private Innlegg[] innleggtabell;
-	private int       nesteledig;
+	private final Innlegg[] innleggtabell;
+	private       int       nesteledig;
 
 	public Blogg() {
 		this.innleggtabell = new Innlegg[20];
@@ -27,8 +27,9 @@ public class Blogg {
 	}
 
 	public int finnInnlegg(Innlegg innlegg) {
+		if (innlegg == null) return -1;
 		for (int i = 0; i < this.innleggtabell.length; i++) {
-			if (innleggtabell[i].erLik(innlegg)) {
+			if (innleggtabell[i] != null && innleggtabell[i].erLik(innlegg)) {
 				return i;
 			}
 		}
@@ -37,8 +38,9 @@ public class Blogg {
 	}
 
 	public boolean finnes(Innlegg innlegg) {
+		if (innlegg == null) return false;
 		for (int i = 0; i < this.innleggtabell.length; i++) {
-			if (innleggtabell[i].erLik(innlegg)) {
+			if (innleggtabell[i] != null && innleggtabell[i].erLik(innlegg)) {
 				return true;
 			}
 		}
@@ -46,16 +48,17 @@ public class Blogg {
 	}
 
 	public boolean ledigPlass() {
-		if (nesteledig == innleggtabell.length + 1) {
-			return true;
-		}
-
-		return false;
+		return this.nesteledig < this.innleggtabell.length;
 	}
 
 	public boolean leggTil(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		// hvis inlegget vi får inn faktisk eksisterer og det er ledig plass i liste
+		if (innlegg != null && this.ledigPlass()) {
+			this.innleggtabell[this.nesteledig] = innlegg;
+			this.nesteledig++;
+			return true;
+		}
+		return false;
 	}
 
 	public String toString() {
