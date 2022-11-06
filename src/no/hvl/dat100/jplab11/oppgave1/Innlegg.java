@@ -3,25 +3,24 @@ package no.hvl.dat100.jplab11.oppgave1;
 import no.hvl.dat100.jplab11.common.TODO;
 
 public abstract class Innlegg {
-	// TODO - deklarering av objektvariable
 
 	private int    id;
 	private String bruker;
 	private String dato;
 	private int    likes;
 
-	public Innlegg() {
+	protected Innlegg() {
 
 	}
 
-	public Innlegg(int id, String bruker, String dato) {
+	protected Innlegg(int id, String bruker, String dato) {
 		this.id     = id;
 		this.bruker = bruker;
 		this.dato   = dato;
 		this.likes  = 0;
 	}
 
-	public Innlegg(int id, String bruker, String dato, int likes) {
+	protected Innlegg(int id, String bruker, String dato, int likes) {
 		this.id     = id;
 		this.bruker = bruker;
 		this.dato   = dato;

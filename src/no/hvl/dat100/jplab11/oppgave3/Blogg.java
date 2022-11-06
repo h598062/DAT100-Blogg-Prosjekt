@@ -39,8 +39,8 @@ public class Blogg {
 
 	public boolean finnes(Innlegg innlegg) {
 		if (innlegg == null) return false;
-		for (int i = 0; i < this.innleggtabell.length; i++) {
-			if (innleggtabell[i] != null && innleggtabell[i].erLik(innlegg)) {
+		for (Innlegg value : this.innleggtabell) {
+			if (value != null && value.erLik(innlegg)) {
 				return true;
 			}
 		}
