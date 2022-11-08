@@ -2,20 +2,21 @@ package no.hvl.dat100.jplab11.oppgave3;
 
 import no.hvl.dat100.jplab11.common.TODO;
 import no.hvl.dat100.jplab11.oppgave1.*;
+import no.hvl.dat100.jplab11.oppgave2.Tekst;
 
 public class Blogg {
 
 	private final Innlegg[] innleggtabell;
-	private       int       nesteledig;
+	private int nesteledig;
 
 	public Blogg() {
 		this.innleggtabell = new Innlegg[20];
-		this.nesteledig    = 0;
+		this.nesteledig = 0;
 	}
 
 	public Blogg(int lengde) {
 		this.innleggtabell = new Innlegg[lengde];
-		this.nesteledig    = 0;
+		this.nesteledig = 0;
 	}
 
 	public int getAntall() {
@@ -27,7 +28,8 @@ public class Blogg {
 	}
 
 	public int finnInnlegg(Innlegg innlegg) {
-		if (innlegg == null) return -1;
+		if (innlegg == null)
+			return -1;
 		for (int i = 0; i < this.innleggtabell.length; i++) {
 			if (innleggtabell[i] != null && innleggtabell[i].erLik(innlegg)) {
 				return i;
@@ -38,7 +40,8 @@ public class Blogg {
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		if (innlegg == null) return false;
+		if (innlegg == null)
+			return false;
 		for (Innlegg value : this.innleggtabell) {
 			if (value != null && value.erLik(innlegg)) {
 				return true;
@@ -62,7 +65,12 @@ public class Blogg {
 	}
 
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String a = "";
+		for (int i = 0; i < innleggtabell.length; i++) {
+			a = a + innleggtabell[i].toString();
+		}
+
+		return getAntall() + "\n" + a;
 	}
 
 	// valgfrie oppgaver nedenfor
