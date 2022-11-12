@@ -10,7 +10,6 @@ import java.util.Date;
 
 import no.hvl.dat100.jplab11.oppgave2.Bilde;
 import no.hvl.dat100.jplab11.oppgave2.Tekst;
-import no.hvl.dat100.jplab11.oppgave3.Blogg;
 import no.hvl.dat100.jplab11.oppgave6.HtmlBlogg;
 
 public class BloggApp {
@@ -18,10 +17,10 @@ public class BloggApp {
 	public static String toHTML() {
 
 		Tekst innlegg1 = new Tekst(1, "Sven-Olai", "23-10",
-				"Lars, hva er status for den siste obligatoriske innleveringen?");
+		                           "Lars, hva er status for den siste obligatoriske innleveringen?");
 		Bilde innlegg2 = new Bilde(2, "Lars", "24-10",
-				"Ser bra ut! - har lagt ved output-eksempel fra enhetstester",
-				"https://home.hvl.no/ansatte/lmkr/dat100/junitscreenshot.png");
+		                           "Ser bra ut! - har lagt ved output-eksempel fra enhetstester",
+		                           "https://home.hvl.no/ansatte/lmkr/dat100/junitscreenshot.png");
 
 		innlegg1.doLike();
 		innlegg1.doLike();
@@ -35,7 +34,7 @@ public class BloggApp {
 		return samling.toString();
 	}
 
-	private ServerSocket welcomeSocket;
+	private final ServerSocket welcomeSocket;
 
 	public BloggApp(ServerSocket welcomeSocket) {
 		this.welcomeSocket = welcomeSocket;
@@ -49,7 +48,8 @@ public class BloggApp {
 
 			Socket connectionSocket = welcomeSocket.accept();
 
-			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+			BufferedReader inFromClient = new BufferedReader(
+					new InputStreamReader(connectionSocket.getInputStream()));
 
 			DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
 
@@ -59,8 +59,10 @@ public class BloggApp {
 
 			String htmlbody = toHTML();
 
-			String header = "HTTP/1.1 200 OK\n" + "Server: DAT100 HTTP Server : 1.0\n" + "Date: " + (new Date()) + "\n"
-					+ "Content-type: " + "text/html" + "\n" + "Content-length: " + htmlbody.length() + "\n" + "\n";
+			String header = "HTTP/1.1 200 OK\n" + "Server: DAT100 HTTP Server : 1.0\n" + "Date: " +
+			                (new Date()) + "\n"
+			                + "Content-type: " + "text/html" + "\n" + "Content-length: " + htmlbody.length() +
+			                "\n" + "\n";
 
 			String outtext = header + htmlbody;
 
@@ -75,7 +77,7 @@ public class BloggApp {
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
-				
+
 			}
 			connectionSocket.close();
 

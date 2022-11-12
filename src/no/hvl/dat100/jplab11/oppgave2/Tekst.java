@@ -1,6 +1,5 @@
 package no.hvl.dat100.jplab11.oppgave2;
 
-import no.hvl.dat100.jplab11.common.TODO;
 import no.hvl.dat100.jplab11.oppgave1.*;
 
 public class Tekst extends Innlegg {
@@ -36,9 +35,10 @@ public class Tekst extends Innlegg {
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
+	@Override
 	public String toHTML() {
-
-		throw new UnsupportedOperationException(TODO.method());
-
+		String output = super.toHTML();
+		output += "\t\t\t<p>" + this.tekst + "</p>" + "\n";
+		return output;
 	}
 }

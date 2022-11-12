@@ -1,7 +1,5 @@
 package no.hvl.dat100.jplab11.oppgave1;
 
-import no.hvl.dat100.jplab11.common.TODO;
-
 public abstract class Innlegg {
 
 	private int    id;
@@ -70,8 +68,6 @@ public abstract class Innlegg {
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
-
-		throw new UnsupportedOperationException(TODO.method());
-
+		return "\t\t<h2>" + this.bruker + "@" + this.dato + " [" + this.likes + "]</h2>" + "\n";
 	}
 }
